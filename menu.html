@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菜品浏览 · 校园食堂中心</title>
+  <link href="libs/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="offline-tip" class="alert alert-warning text-center mb-0 rounded-0 d-none">
+  当前处于离线状态，菜品数据可能无法加载，请检查网络。
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark cf-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍚 校园食堂中心</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">菜品浏览</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">菜品管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="stats.html">数据看板</a></li>
+        <li class="nav-item"><a class="nav-link" href="canteen-3d.html">三维食堂</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-4">
+  <h2 class="cf-section-title">🔍 菜品浏览</h2>
+
+  <div id="status-tip" class="alert"></div>
+
+  <!-- 搜索与排序 -->
+  <section class="card cf-card mb-3">
+    <div class="card-body">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-6">
+          <input type="search" id="search-input" class="form-control" placeholder="搜索菜名或窗口，如：牛肉、拉面、轻食">
+        </div>
+        <div class="col-md-3">
+          <select id="canteen-select" class="form-select">
+            <option value="全部">全部食堂</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select id="sort-select" class="form-select">
+            <option value="default">默认排序</option>
+            <option value="priceAsc">价格从低到高</option>
+            <option value="priceDesc">价格从高到低</option>
+            <option value="rating">评分最高优先</option>
+            <option value="sales">销量最高优先</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品类筛选 -->
+  <section class="mb-3" id="category-filters">
+    <button class="filter-btn active" data-cat="全部">全部</button>
+    <!-- 其余按钮由 JS 按数据动态生成 -->
+  </section>
+
+  <p class="text-muted small" id="result-count"></p>
+
+  <!-- 菜品列表 -->
+  <section class="row g-3" id="dish-grid"></section>
+</main>
+
+<footer class="cf-footer">
+  <div class="container text-center">
+    <small>校园食堂信息与数据展示中心 · 软件开发综合实践期末大作业</small>
+  </div>
+</footer>
+
+<script src="libs/jquery-3.7.1.min.js"></script>
+<script src="libs/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/menu.js"></script>
+</body>
+</html>

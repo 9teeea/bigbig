@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菜品管理 · 校园食堂中心</title>
+  <link href="libs/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="offline-tip" class="alert alert-warning text-center mb-0 rounded-0 d-none">
+  当前处于离线状态，菜品数据可能无法加载，请检查网络。
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark cf-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍚 校园食堂中心</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">菜品浏览</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">菜品管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="stats.html">数据看板</a></li>
+        <li class="nav-item"><a class="nav-link" href="canteen-3d.html">三维食堂</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container-fluid px-md-4 my-4">
+  <div class="d-flex justify-content-between align-items-center flex-wrap">
+    <h2 class="cf-section-title mb-0">📝 菜品管理</h2>
+    <div class="mt-2 mt-md-0">
+      <button class="btn btn-success btn-sm" id="btn-add">➕ 添加菜品</button>
+      <button class="btn btn-outline-secondary btn-sm" id="btn-reset">↩ 恢复原始数据</button>
+    </div>
+  </div>
+
+  <div id="status-tip" class="alert"></div>
+  <p class="text-muted small mt-2">数据保存在浏览器本地（localStorage），修改后会同步影响"菜品浏览"和"数据看板"。当前共 <span id="dish-total">0</span> 道菜。</p>
+
+  <div class="table-responsive">
+    <table class="table table-hover align-middle bg-white rounded overflow-hidden">
+      <thead class="table-light">
+        <tr>
+          <th>ID</th><th>菜名</th><th>食堂</th><th>窗口</th><th>品类</th>
+          <th>价格</th><th>评分</th><th>月售</th><th>库存</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="dish-tbody"></tbody>
+    </table>
+  </div>
+</main>
+
+<!-- 添加/编辑模态框 -->
+<div class="modal fade" id="dish-modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-title">添加菜品</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="dish-form" novalidate>
+          <input type="hidden" id="f-id">
+          <div class="mb-2">
+            <label class="form-label">菜名 <span class="text-danger">*</span></label>
+            <input type="text" class="form-control" id="f-name" placeholder="如：宫保鸡丁">
+          </div>
+          <div class="row">
+            <div class="col-6 mb-2">
+              <label class="form-label">食堂</label>
+              <select class="form-select" id="f-canteen"></select>
+            </div>
+            <div class="col-6 mb-2">
+              <label class="form-label">窗口</label>
+              <input type="text" class="form-control" id="f-window" placeholder="如：川菜窗口">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mb-2">
+              <label class="form-label">品类</label>
+              <select class="form-select" id="f-category">
+                <option>荤菜</option><option>素菜</option><option>面食</option>
+                <option>主食</option><option>小吃</option><option>轻食</option>
+              </select>
+            </div>
+            <div class="col-6 mb-2">
+              <label class="form-label">标签（逗号分隔，可空）</label>
+              <input type="text" class="form-control" id="f-tags" placeholder="招牌,微辣">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 mb-2">
+              <label class="form-label">价格(元)</label>
+              <input type="number" class="form-control" id="f-price" min="0.1" max="100" step="0.5" placeholder="0.0">
+            </div>
+            <div class="col-4 mb-2">
+              <label class="form-label">评分(0-5)</label>
+              <input type="number" class="form-control" id="f-rating" min="0" max="5" step="0.1" placeholder="4.5">
+            </div>
+            <div class="col-4 mb-2">
+              <label class="form-label">库存(份)</label>
+              <input type="number" class="form-control" id="f-stock" min="0" max="9999" step="1" placeholder="50">
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">热量(千卡，可空)</label>
+            <input type="number" class="form-control" id="f-calorie" min="0" max="2000" step="10">
+          </div>
+          <p class="text-danger small mb-0" id="form-error"></p>
+          <div class="modal-footer px-0 pb-0">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary btn-sm">保存</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="cf-footer">
+  <div class="container text-center">
+    <small>校园食堂信息与数据展示中心 · 软件开发综合实践期末大作业</small>
+  </div>
+</footer>
+
+<script src="libs/jquery-3.7.1.min.js"></script>
+<script src="libs/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
