@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据看板 · 校园食堂中心</title>
+  <link href="libs/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="offline-tip" class="alert alert-warning text-center mb-0 rounded-0 d-none">
+  当前处于离线状态，图表数据可能无法加载，请检查网络。
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark cf-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍚 校园食堂中心</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">菜品浏览</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">菜品管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="stats.html">数据看板</a></li>
+        <li class="nav-item"><a class="nav-link" href="canteen-3d.html">三维食堂</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-4">
+  <h2 class="cf-section-title">📊 食堂运营数据看板</h2>
+  <p class="text-muted" id="data-source">数据加载中…</p>
+
+  <div id="status-tip" class="alert"></div>
+
+  <!-- 指标卡片 -->
+  <section class="row g-3 mb-4" id="stat-cards"></section>
+
+  <!-- 图表区 -->
+  <section class="row g-4">
+    <div class="col-lg-6">
+      <div class="card cf-card h-100"><div class="card-body">
+        <h5>各食堂月销量对比（ECharts 柱状图）</h5>
+        <div id="bar-chart" class="chart-box"></div>
+      </div></div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card cf-card h-100"><div class="card-body">
+        <h5>菜品品类销量占比（Chart.js 环形图）</h5>
+        <div class="chart-box"><canvas id="doughnut-chart"></canvas></div>
+      </div></div>
+    </div>
+    <div class="col-12">
+      <div class="card cf-card"><div class="card-body">
+        <h5>本周各日就餐人次趋势（ECharts 折线图）</h5>
+        <div id="line-chart" class="chart-box"></div>
+      </div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="cf-footer">
+  <div class="container text-center">
+    <small>校园食堂信息与数据展示中心 · 软件开发综合实践期末大作业</small>
+  </div>
+</footer>
+
+<script src="libs/jquery-3.7.1.min.js"></script>
+<script src="libs/bootstrap.bundle.min.js"></script>
+<script src="libs/echarts.min.js"></script>
+<script src="libs/chart.umd.js"></script>
+<script src="js/common.js"></script>
+<script src="js/stats.js"></script>
+</body>
+</html>
