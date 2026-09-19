@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Microsoft YaHei", sans-serif; background: #fff; padding: 30px; width: 1180px; }
+  h2 { text-align: center; color: #d9480f; margin-bottom: 24px; }
+  .layer { display: flex; justify-content: center; gap: 18px; margin-bottom: 14px; }
+  .box { border: 2px solid #e8590c; border-radius: 10px; padding: 12px 18px; background: #fff4e6; text-align: center; font-size: 15px; min-width: 150px; }
+  .box b { color: #d9480f; }
+  .box .sub { font-size: 12px; color: #666; margin-top: 4px; }
+  .entry { background: #d9480f; color: #fff; border-color: #d9480f; min-width: 320px; font-size: 17px; }
+  .entry b { color: #fff3bf; }
+  .arrow { text-align: center; color: #e8590c; font-size: 22px; line-height: 1; margin: 4px 0; }
+  .data-layer { justify-content: center; }
+  .data { background: #e7f5ff; border-color: #1971c2; }
+  .data b { color: #1971c2; }
+  .note { text-align: center; color: #868e96; font-size: 13px; margin-top: 16px; }
+  .flow-label { display:inline-block; background:#f1f3f5; border-radius: 12px; padding: 2px 12px; font-size: 12px; color:#555; }
+</style>
+</head>
+<body>
+<h2>校园食堂信息与数据展示中心 · 设计思路图</h2>
+
+<div class="layer">
+  <div class="box entry"><b>统一入口 index.html</b><div class="sub" style="color:rgba(255,255,255,.85)">导航栏（五个页面共用）+ 本周概览 + 食堂介绍</div></div>
+</div>
+<div class="arrow">▼</div>
+
+<div class="layer">
+  <div class="box"><b>菜品浏览 menu.html</b><div class="sub">搜索 / 食堂筛选 / 品类筛选 / 排序</div></div>
+  <div class="box"><b>菜品管理 admin.html</b><div class="sub">添加 / 修改 / 删除 / 表单校验</div></div>
+  <div class="box"><b>数据看板 stats.html</b><div class="sub">柱状图 / 环形图 / 折线图</div></div>
+  <div class="box"><b>三维食堂 canteen-3d.html</b><div class="sub">Three.js 场景 / 旋转缩放点击</div></div>
+</div>
+<div class="arrow">▼</div>
+
+<div class="layer data-layer">
+  <div class="box data"><b>data/dishes.json</b><div class="sub">3 个食堂 · 15 道菜 · 一周就餐数据</div></div>
+  <div class="box data"><b>localStorage（cf_dishes）</b><div class="sub">管理页的增删改 → 浏览页/看板联动</div></div>
+</div>
+
+<p class="note">
+  <span class="flow-label">数据流向：页面 fetch JSON → 合并本地修改 → 渲染卡片/表格/图表；管理页保存 → localStorage → 其他页面读取</span>
+</p>
+</body>
+</html>
