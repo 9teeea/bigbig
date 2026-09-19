@@ -1,0 +1,150 @@
+/* ===== 校园食堂信息与数据展示中心 · 统一样式 ===== */
+:root {
+  --brand: #e8590c;
+  --brand-dark: #d9480f;
+  --brand-light: #fff4e6;
+  --ink: #2b2b2b;
+  --muted: #868e96;
+}
+
+body {
+  font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: #faf9f7;
+}
+
+/* 导航 */
+.cf-nav {
+  background: linear-gradient(90deg, #d9480f, #e8590c);
+  box-shadow: 0 2px 8px rgba(217, 72, 15, .25);
+}
+.cf-nav .navbar-brand { font-weight: 700; letter-spacing: 1px; }
+.cf-nav .nav-link.active { color: #fff3bf !important; font-weight: 600; }
+.cf-nav .nav-link { color: rgba(255,255,255,.85); }
+
+/* 首页 Hero */
+.cf-hero {
+  background: linear-gradient(135deg, #d9480f 0%, #f08c00 100%);
+  color: #fff;
+  padding: 72px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.cf-hero::after {
+  content: '';
+  position: absolute;
+  right: -60px; bottom: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+}
+.cf-hero h1 { font-weight: 800; }
+.cf-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.2);
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: .85rem;
+  margin-bottom: 16px;
+}
+
+/* 卡片 */
+.cf-card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform .2s ease, box-shadow .2s ease;
+  overflow: hidden;
+}
+.cf-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(217,72,15,.15);
+}
+.cf-card .card-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  background: var(--brand-light);
+  color: var(--brand);
+  font-size: 1.6rem;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.cf-stat {
+  background: linear-gradient(135deg, #fff, #fff8f0);
+  border: 1px solid #ffe8cc;
+}
+.cf-stat .num { font-size: 2rem; font-weight: 800; color: var(--brand-dark); }
+
+/* 区块标题 */
+.cf-section-title {
+  border-left: 5px solid var(--brand);
+  padding-left: 12px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* 菜品卡片 */
+.dish-card .price { color: var(--brand-dark); font-weight: 800; font-size: 1.15rem; }
+.dish-tag {
+  display: inline-block;
+  background: var(--brand-light);
+  color: var(--brand-dark);
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-size: .75rem;
+  margin-right: 4px;
+}
+.dish-tag.hot { background: #ffe3e3; color: #c92a2a; }
+.stars { color: #f59f00; font-size: .85rem; }
+
+/* 筛选按钮 */
+.filter-btn {
+  border: 1px solid #ffc078;
+  background: #fff;
+  color: var(--brand-dark);
+  border-radius: 20px;
+  padding: 4px 16px;
+  margin: 0 8px 8px 0;
+  font-size: .9rem;
+  cursor: pointer;
+  transition: all .15s;
+}
+.filter-btn:hover { background: var(--brand-light); }
+.filter-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+/* 状态提示 */
+#status-tip { display: none; }
+.empty-tip { text-align: center; color: var(--muted); padding: 48px 0; font-size: 1.05rem; }
+
+/* 图表容器 */
+.chart-box { height: 380px; }
+
+/* 三维容器 */
+#three-box {
+  width: 100%;
+  height: 66vh;
+  min-height: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0b1d33;
+}
+
+/* 页脚 */
+.cf-footer {
+  background: #2b2d42;
+  color: #adb5bd;
+  padding: 28px 0;
+  margin-top: 56px;
+}
+
+/* 管理页表格内按钮 */
+.table .btn-sm { padding: 1px 10px; font-size: .8rem; }
+
+/* 手机端微调 */
+@media (max-width: 576px) {
+  .cf-hero { padding: 44px 0 40px; }
+  .cf-hero h1 { font-size: 1.7rem; }
+  .chart-box { height: 300px; }
+  #three-box { height: 52vh; min-height: 340px; }
+}

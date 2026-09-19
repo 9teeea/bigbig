@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园食堂信息与数据展示中心</title>
+  <link href="libs/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 断网提示 -->
+<div id="offline-tip" class="alert alert-warning text-center mb-0 rounded-0 d-none">
+  当前处于离线状态，菜品数据与图表可能无法加载，请检查网络。
+</div>
+
+<!-- 导航 -->
+<nav class="navbar navbar-expand-lg navbar-dark cf-nav sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🍚 校园食堂中心</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">首页</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">菜品浏览</a></li>
+        <li class="nav-item"><a class="nav-link" href="admin.html">菜品管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="stats.html">数据看板</a></li>
+        <li class="nav-item"><a class="nav-link" href="canteen-3d.html">三维食堂</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <header class="cf-hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <span class="cf-badge">📢 今日菜单已更新 · 数据每日同步</span>
+          <h1 class="display-5">校园食堂信息与<br>数据展示中心</h1>
+          <p class="lead mt-3 mb-4 opacity-75">查菜品、看价格、比评分、观数据——一个页面掌握全校食堂动态</p>
+          <div>
+            <a href="menu.html" class="btn btn-light btn-lg me-2 mb-2">浏览今日菜品</a>
+            <a href="stats.html" class="btn btn-outline-light btn-lg mb-2">查看数据看板</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-none d-lg-block text-center">
+          <div style="font-size:9rem; line-height:1;">🍜</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 数据概览 -->
+  <section class="container my-5">
+    <h2 class="cf-section-title">本周概览</h2>
+    <p id="overview-status" class="text-muted">数据加载中…</p>
+    <div class="row g-3" id="overview-cards">
+      <div class="col-6 col-lg-3">
+        <div class="card cf-card cf-stat h-100"><div class="card-body text-center">
+          <p class="text-muted mb-1">开放食堂</p><p class="num mb-0" id="num-canteens">--</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card cf-card cf-stat h-100"><div class="card-body text-center">
+          <p class="text-muted mb-1">在售菜品</p><p class="num mb-0" id="num-dishes">--</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card cf-card cf-stat h-100"><div class="card-body text-center">
+          <p class="text-muted mb-1">本周就餐</p><p class="num mb-0" id="num-visits">--</p>
+        </div></div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="card cf-card cf-stat h-100"><div class="card-body text-center">
+          <p class="text-muted mb-1">菜品平均分</p><p class="num mb-0" id="num-rating">--</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 食堂介绍 -->
+  <section class="container my-5">
+    <h2 class="cf-section-title">三大食堂</h2>
+    <div class="row g-4" id="canteen-cards"></div>
+  </section>
+
+  <!-- 功能入口 -->
+  <section class="container my-5">
+    <h2 class="cf-section-title">功能中心</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card cf-card h-100"><div class="card-body">
+          <div class="card-icon">🔍</div>
+          <h5>菜品浏览</h5>
+          <p class="text-muted small">按食堂、品类筛选，关键字搜索，价格排序。</p>
+          <a href="menu.html" class="btn btn-sm" style="background:var(--brand);color:#fff;">进入</a>
+        </div></div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card cf-card h-100"><div class="card-body">
+          <div class="card-icon">📝</div>
+          <h5>菜品管理</h5>
+          <p class="text-muted small">后勤人员添加、修改、下架菜品，本地保存。</p>
+          <a href="admin.html" class="btn btn-sm" style="background:var(--brand);color:#fff;">进入</a>
+        </div></div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card cf-card h-100"><div class="card-body">
+          <div class="card-icon">📊</div>
+          <h5>数据看板</h5>
+          <p class="text-muted small">销量柱状图、品类环形图、一周人流趋势。</p>
+          <a href="stats.html" class="btn btn-sm" style="background:var(--brand);color:#fff;">进入</a>
+        </div></div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card cf-card h-100"><div class="card-body">
+          <div class="card-icon">🏢</div>
+          <h5>三维食堂</h5>
+          <p class="text-muted small">Three.js 还原食堂大厅，可旋转缩放漫游。</p>
+          <a href="canteen-3d.html" class="btn btn-sm" style="background:var(--brand);color:#fff;">进入</a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="cf-footer">
+  <div class="container text-center">
+    <small>校园食堂信息与数据展示中心 · 软件开发综合实践期末大作业 · 学号 202510060366 沈芝宇</small>
+  </div>
+</footer>
+
+<script src="libs/jquery-3.7.1.min.js"></script>
+<script src="libs/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+$(function () {
+  loadCanteenData().then(function (data) {
+    // 概览数字
+    var weekTotal = data.weekVisits.reduce(function (s, d) { return s + d.visits; }, 0);
+    var avgRating = (data.dishes.reduce(function (s, d) { return s + d.rating; }, 0) / data.dishes.length).toFixed(1);
+    $('#num-canteens').text(data.canteens.length + ' 座');
+    $('#num-dishes').text(data.dishes.length + ' 道');
+    $('#num-visits').text((weekTotal / 10000).toFixed(2) + ' 万人次');
+    $('#num-rating').text(avgRating + ' 分');
+    $('#overview-status').text('数据来源：' + data.source);
+
+    // 食堂卡片
+    var icons = { 'A': '🥘', 'B': '🍜', 'C': '🥗' };
+    $('#canteen-cards').html(data.canteens.map(function (c) {
+      var dishCount = data.dishes.filter(function (d) { return d.canteen === c.name; }).length;
+      return '<div class="col-md-4">' +
+        '<div class="card cf-card h-100"><div class="card-body">' +
+        '<div class="d-flex align-items-center mb-2"><span style="font-size:2rem;">' + (icons[c.id] || '🍚') + '</span>' +
+        '<h5 class="ms-3 mb-0">' + c.name + '</h5></div>' +
+        '<p class="text-muted small mb-2">' + c.desc + '</p>' +
+        '<p class="small mb-1">📍 ' + c.location + '</p>' +
+        '<p class="small mb-1">🕘 ' + c.hours + '</p>' +
+        '<p class="small mb-0">💺 ' + c.seats + ' 个座位 · 在售 ' + dishCount + ' 道菜</p>' +
+        '</div></div></div>';
+    }).join(''));
+  }).catch(function (err) {
+    $('#overview-status').html('<span class="text-danger">首页数据加载失败：' + err.message + '，请刷新重试</span>');
+  });
+});
+</script>
+</body>
+</html>

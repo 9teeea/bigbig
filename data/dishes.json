@@ -1,0 +1,35 @@
+{
+  "title": "校园食堂信息与数据展示中心",
+  "source": "学校后勤管理处 · 2025-2026学年第一学期统计数据",
+  "canteens": [
+    { "id": "A", "name": "馨香苑", "desc": "第一食堂，主打川菜与大众快餐", "location": "东区教学楼旁", "hours": "06:30 - 20:00", "seats": 600 },
+    { "id": "B", "name": "知味居", "desc": "第二食堂，面食与特色小吃为主", "location": "图书馆负一层", "hours": "07:00 - 19:30", "seats": 420 },
+    { "id": "C", "name": "清风堂", "desc": "第三食堂，清真窗口与轻食简餐", "location": "西区宿舍区", "hours": "06:40 - 20:30", "seats": 380 }
+  ],
+  "weekVisits": [
+    { "day": "周一", "visits": 3200 },
+    { "day": "周二", "visits": 3450 },
+    { "day": "周三", "visits": 3100 },
+    { "day": "周四", "visits": 3680 },
+    { "day": "周五", "visits": 4120 },
+    { "day": "周六", "visits": 2260 },
+    { "day": "周日", "visits": 2480 }
+  ],
+  "dishes": [
+    { "id": 1, "name": "鱼香肉丝", "canteen": "馨香苑", "window": "川菜窗口", "category": "荤菜", "price": 12.0, "rating": 4.6, "calorie": 350, "monthlySales": 1280, "stock": 80, "tags": ["微辣", "招牌"] },
+    { "id": 2, "name": "麻婆豆腐", "canteen": "馨香苑", "window": "川菜窗口", "category": "荤菜", "price": 8.0, "rating": 4.3, "calorie": 260, "monthlySales": 960, "stock": 60, "tags": ["麻辣"] },
+    { "id": 3, "name": "番茄炒蛋", "canteen": "馨香苑", "window": "家常窗口", "category": "荤菜", "price": 7.0, "rating": 4.5, "calorie": 220, "monthlySales": 1520, "stock": 100, "tags": ["不辣", "人气"] },
+    { "id": 4, "name": "清炒时蔬", "canteen": "馨香苑", "window": "家常窗口", "category": "素菜", "price": 4.0, "rating": 4.0, "calorie": 90, "monthlySales": 720, "stock": 50, "tags": ["清淡"] },
+    { "id": 5, "name": "土豆烧牛肉", "canteen": "馨香苑", "window": "烧菜窗口", "category": "荤菜", "price": 15.0, "rating": 4.8, "calorie": 420, "monthlySales": 1100, "stock": 45, "tags": ["招牌", "不辣"] },
+    { "id": 6, "name": "米饭", "canteen": "馨香苑", "window": "主食窗口", "category": "主食", "price": 1.0, "rating": 4.2, "calorie": 230, "monthlySales": 3600, "stock": 500, "tags": [] },
+    { "id": 7, "name": "牛肉拉面", "canteen": "知味居", "window": "拉面窗口", "category": "面食", "price": 11.0, "rating": 4.7, "calorie": 480, "monthlySales": 1340, "stock": 120, "tags": ["招牌", "人气"] },
+    { "id": 8, "name": "红油抄手", "canteen": "知味居", "window": "小吃窗口", "category": "面食", "price": 9.0, "rating": 4.4, "calorie": 380, "monthlySales": 880, "stock": 90, "tags": ["微辣"] },
+    { "id": 9, "name": "煎饼果子", "canteen": "知味居", "window": "小吃窗口", "category": "小吃", "price": 6.0, "rating": 4.6, "calorie": 320, "monthlySales": 1460, "stock": 70, "tags": ["人气", "早餐"] },
+    { "id": 10, "name": "酸辣粉", "canteen": "知味居", "window": "小吃窗口", "category": "面食", "price": 8.0, "rating": 4.1, "calorie": 360, "monthlySales": 640, "stock": 80, "tags": ["酸辣"] },
+    { "id": 11, "name": "鸡蛋灌饼", "canteen": "知味居", "window": "早餐窗口", "category": "小吃", "price": 5.0, "rating": 4.3, "calorie": 300, "monthlySales": 980, "stock": 60, "tags": ["早餐"] },
+    { "id": 12, "name": "兰州拉面", "canteen": "清风堂", "window": "清真窗口", "category": "面食", "price": 12.0, "rating": 4.5, "calorie": 460, "monthlySales": 760, "stock": 100, "tags": ["清真"] },
+    { "id": 13, "name": "手抓羊肉饭", "canteen": "清风堂", "window": "清真窗口", "category": "荤菜", "price": 18.0, "rating": 4.9, "calorie": 560, "monthlySales": 540, "stock": 40, "tags": ["清真", "招牌"] },
+    { "id": 14, "name": "鸡胸肉沙拉", "canteen": "清风堂", "window": "轻食窗口", "category": "轻食", "price": 14.0, "rating": 4.2, "calorie": 280, "monthlySales": 430, "stock": 35, "tags": ["低卡"] },
+    { "id": 15, "name": "杂粮粥", "canteen": "清风堂", "window": "轻食窗口", "category": "主食", "price": 3.0, "rating": 4.0, "calorie": 150, "monthlySales": 690, "stock": 150, "tags": ["清淡", "早餐"] }
+  ]
+}
